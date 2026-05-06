@@ -1,0 +1,24 @@
+{
+  "name": "pgats-atividade-extra-login",
+  "version": "1.0.0",
+  "type":"module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baguiarol/pgats-atividade-extra-login.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baguiarol/pgats-atividade-extra-login/issues"
+  },
+  "homepage": "https://github.com/baguiarol/pgats-atividade-extra-login#readme",
+  "dependencies": {
+    "mocha": "^11.7.5"
+  }
+}
