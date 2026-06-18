@@ -4,11 +4,16 @@
   "type": "module",
   "description": "",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha --reporter mocha-junit-reporter --reporter-options mochaFile=test-results/results.xml"
+  "test": "nyc --reporter=html --reporter=text node --experimental-vm-modules node_modules/mocha/bin/mocha.js --reporter mocha-junit-reporter --reporter-options mochaFile=test-results/results.xml"
   },
   "mocha": {
     "spec": "tests/*.test.js"
   },
+  "nyc": {
+  "include": ["src/**/*.js"],
+  "reporter": ["html", "text"],
+  "all": true
+ },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/baguiarol/pgats-atividade-extra-login.git"
