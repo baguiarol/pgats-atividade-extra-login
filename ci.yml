@@ -1,0 +1,50 @@
+name: CI Pipeline
+
+on:
+  # 1. Execução por push em qualquer branch
+  push:
+    branches:
+      - '**'
+
+  # 2. Execução manual pelo GitHub
+  workflow_dispatch:
+
+  # 3. Execução agendada — toda segunda-feira às 08:00 (horário de Brasília = 11:00 UTC)
+  schedule:
+    - cron: '0 11 * * 1'
+
+jobs:
+  test:
+    name: Executar Testes
+    runs-on: ubuntu-latest
+
+    steps:
+      # Faz checkout do código
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      # Configura o Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # Instala as dependências
+      - name: Instalar dependências
+        run: npm ci
+
+      # Roda os testes e gera o relatório
+      - name: Executar testes
+        run: npm run test
+
+      # Armazena o relatório como artefato da pipeline
+      - name: Publicar relatório de testes
+        uses: actions/upload-artifact@v4
+        if: always()   # roda mesmo se os testes falharem
+        with:
+          name: relatorio-testes
+          path: |
+            test-results/
+            coverage/
+          retention-days: 30

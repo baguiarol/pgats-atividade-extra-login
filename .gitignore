@@ -1,2 +1,20 @@
 # Dependências
 node_modules/
+
+# Relatórios gerados pela pipeline (não versionar, são gerados automaticamente)
+coverage/
+test-results/
+
+# Logs
+npm-debug.log*
+*.log
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Variáveis de ambiente
+.env
+.env.local
+
+.nyc_output/
