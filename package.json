@@ -4,16 +4,21 @@
   "type": "module",
   "description": "",
   "scripts": {
-  "test": "nyc --reporter=html --reporter=text node --experimental-vm-modules node_modules/mocha/bin/mocha.js --reporter mocha-junit-reporter --reporter-options mochaFile=test-results/results.xml"
+    "test": "c8 --reporter=html --reporter=text node --experimental-vm-modules node_modules/mocha/bin/mocha.js --reporter mocha-junit-reporter --reporter-options mochaFile=test-results/results.xml"
   },
   "mocha": {
     "spec": "tests/*.test.js"
   },
   "nyc": {
-  "include": ["src/**/*.js"],
-  "reporter": ["html", "text"],
-  "all": true
- },
+    "include": [
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "html",
+      "text"
+    ],
+    "all": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/baguiarol/pgats-atividade-extra-login.git"
@@ -29,8 +34,8 @@
     "mocha": "^11.7.6"
   },
   "devDependencies": {
+    "c8": "^11.0.0",
     "chai": "^5.0.0",
-    "mocha-junit-reporter": "^2.2.1",
-    "nyc": "^17.0.0"
+    "mocha-junit-reporter": "^2.2.1"
   }
 }
